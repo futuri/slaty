@@ -78,11 +78,11 @@ module.exports = (config) => {
       rules: [
         // SCSS => CSS (Also parse CSS here, why not?)
         {
-          test: /\.(scss|css)$/,
+          test: /\.(scss|css|liquid)$/,
           use: [
             { loader: MiniCssExtractPlugin.loader },
             { loader: require.resolve("css-loader") , options: { url: false, importLoaders: 1 } },
-            { loader: require.resolve("sass-loader") } 
+            { loader: require.resolve("liquid-loader"), options: { settingsData: "../config/settings_data.json" } },
           ],
         },
         {
